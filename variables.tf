@@ -15,11 +15,6 @@ EOT
     base_role   = optional(string)
     description = optional(string)
   }))
-  # --- Unconfirmed validation candidates, derived from github_organization_role's provider source ---
-  # Not auto-enabled: either a bespoke provider validator we can't safely translate,
-  # or a path that crosses a list-typed block (needs its own for_each wrapping).
-  # Review, translate into a real validation{} block above, and delete once confirmed.
-  # path: base_role
-  #   source:    validateValueFunc: no recognizable `if ... { errors = append(...) }` pattern - read it by hand
+  # Note: 1 additional provider-side validator is enforced at apply time but not mirrored as validation{} blocks here (bespoke or non-mechanically-translatable).
 }
 
